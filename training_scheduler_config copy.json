@@ -1,0 +1,11 @@
+[
+    {
+        "name": "math",
+        "datafile": "./data/math.jsonl",
+        "learning_rate": 1e-5,
+        "max_epochs": 100,
+        "target_validation_loss": 0.005,
+        "checkpoint_interval": 20,
+        "patience": 3
+    }
+]
