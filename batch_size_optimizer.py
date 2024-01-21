@@ -1,5 +1,6 @@
 import torch
 from torch.utils.data import DataLoader
+from utils import get_best_device
 
 def test_batch_size(model, data_loader, device):
     try:
@@ -17,37 +18,40 @@ def test_batch_size(model, data_loader, device):
         raise e
 
 def find_optimal_batch_size(model, dataset, start_batch_size=32, max_batch_size=2048, device=None):
-    """
-    Finds the optimal batch size for the given model and dataset.
-    """
+    # check if the device has been specified, if not get the best device
     if device is None:
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        device = get_best_device()
+
+    # set the device for the model
     model.to(device)
+
+    # set the optimal batch size
     optimal_batch_size = start_batch_size
+    current_batch_size = start_batch_size
 
     # print the current batch size
     print(f"Device: {device}")
-    print(f"Starting Batch Size: {optimal_batch_size}")
+    print(f"Starting Batch Size: {start_batch_size}")
     
     # loop from current batch size, to max batch size
-    while optimal_batch_size <= max_batch_size:
+    while current_batch_size <= max_batch_size:
         # instantiate the data loader
         data_loader = DataLoader(dataset, batch_size=optimal_batch_size, shuffle=True)
 
         # loading new batch size
-        print(f"Attempting Batch Size: {optimal_batch_size}")
+        print(f"Attempting Batch Size: {current_batch_size}")
 
         # test the barch size
         if test_batch_size(model, data_loader, device):
             # success, print the batch size
-            print(f"Succesful Batch Size: {optimal_batch_size}")
+            print(f"Succesful Batch Size: {current_batch_size}")
 
             # increment the batch size
-            optimal_batch_size *= 2
+            optimal_batch_size = current_batch_size
+            current_batch_size *= 2
         else:
             # success, print the batch size
-            print(f"Failed Batch Size: {optimal_batch_size}")
-            break
+            print(f"Failed Batch Size: {current_batch_size}")
 
-    # returns the last successful batch size
-    return optimal_batch_size
+            # returns the last successful batch size
+            return optimal_batch_size
