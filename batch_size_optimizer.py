@@ -47,6 +47,7 @@ def find_optimal_batch_size(model, dataset, start_batch_size=32, max_batch_size=
         else:
             # success, print the batch size
             print(f"Failed Batch Size: {optimal_batch_size}")
+            break
 
     # returns the last successful batch size
     return optimal_batch_size
