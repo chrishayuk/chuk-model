@@ -25,16 +25,26 @@ def find_optimal_batch_size(model, dataset, start_batch_size=32, max_batch_size=
     model.to(device)
     optimal_batch_size = start_batch_size
 
+    # print the current batch size
+    print(f"Device: {device}")
+    print(f"Starting Batch Size: {optimal_batch_size}")
+    
     # loop from current batch size, to max batch size
     while optimal_batch_size <= max_batch_size:
         # instantiate the data loader
         data_loader = DataLoader(dataset, batch_size=optimal_batch_size, shuffle=True)
+
+        # loading new batch size
+        print(f"Attempting Batch Size: {optimal_batch_size}")
 
         # test the barch size
         if test_batch_size(model, data_loader, device):
             optimal_batch_size *= 2
         else:
             break
+
+        # print the current batch size
+        print(f"Succesful Batch Size: {optimal_batch_size}")
 
     # returns the last successful batch size
     return optimal_batch_size

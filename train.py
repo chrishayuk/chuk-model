@@ -88,11 +88,14 @@ print(f"Total number of parameters: {total_params}")
 
 # get the device
 device = get_best_device()
+print(f"Device: {device}")
 
-# find the optimal batch size
-max_seq_length = 200
-# batch_test_input_strings, batch_test_target_strings = load_data_from_jsonl("./data/math/math_broad.jsonl")
+# #find the optimal batch size
+# max_seq_length = 200
+# batch_test_input_strings, batch_test_target_strings = load_data_from_jsonl("./data/counting_broad.jsonl")
 # batch_test_dataset = TokenizedPairDataset(batch_test_input_strings, batch_test_target_strings, max_seq_length)
+
+# print(f"Attempting to find optimal batch size")
 # optimal_batch_size = find_optimal_batch_size(model, batch_test_dataset, device=device)
 # print(f"Optimal Batch Size: {optimal_batch_size}")
 
