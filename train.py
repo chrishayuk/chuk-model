@@ -192,7 +192,6 @@ for schedule_epoch in range(0, 1):
                 checkpoint_manager.save_checkpoint(model, optimizer, epoch + 1, average_loss, config.name, schedule_epoch)
 
 
-
 # Final model save (optional)
 print(f"saving final model")
 state_manager.save_state(model, "trained_model_final.pth")
