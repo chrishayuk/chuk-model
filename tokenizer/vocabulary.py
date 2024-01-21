@@ -1,5 +1,6 @@
 # Define the vocabulary
-characters = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ,.+=<>()-/*")
+#characters = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ,.+=<>()-/*")
+characters = list("0123456789,")
 special_tokens = ["<pad>", "<eos>", "<cont>", "<endbatch>", "<data>","reverse:"]
 vocabulary = special_tokens + characters
 

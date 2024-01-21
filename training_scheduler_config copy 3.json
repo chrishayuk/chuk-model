@@ -1,0 +1,29 @@
+[
+    {
+        "name": "counting_broad",
+        "datafile": "./data/counting_broad.jsonl",
+        "learning_rate": 1e-4,
+        "max_epochs": 1,
+        "target_validation_loss": 0.005,
+        "checkpoint_interval": 1,
+        "patience": 3
+    },
+    {
+        "name": "counting_sequence_2_digits_0_1000",
+        "datafile": "./data/counting_sequence_2_digits_0_1000.jsonl",
+        "learning_rate": 1e-5,
+        "max_epochs": 15,
+        "target_validation_loss": 0.005,
+        "checkpoint_interval": 1,
+        "patience": 3
+    },
+    {
+        "name": "counting_sequence_3_digits_0_1000",
+        "datafile": "./data/counting_sequence_3_digits_0_1000.jsonl",
+        "learning_rate": 1e-5,
+        "max_epochs": 15,
+        "target_validation_loss": 0.005,
+        "checkpoint_interval": 1,
+        "patience": 3
+    }
+]

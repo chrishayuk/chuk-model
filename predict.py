@@ -22,6 +22,7 @@ def load_model(model_path, model_params):
 def preprocess_input(text, tokenizer, max_seq_length):
     # Tokenize the text
     tokenized_text = tokenizer(text)
+    print(tokenized_text)
 
     # Ensure the sequence is within the max sequence length
     if len(tokenized_text) > max_seq_length:
@@ -88,6 +89,8 @@ if __name__ == "__main__":
     model = load_model(model_path, model_params)
 
     # Make a prediction
+    #input_sequence = [int(num) for num in args.prompt.split(',')]
+    #prediction = predict(args.prompt, model, encode, model_params['max_seq_length'])
     prediction = predict(args.prompt, model, encode, model_params['max_seq_length'])
 
     # show the prediction

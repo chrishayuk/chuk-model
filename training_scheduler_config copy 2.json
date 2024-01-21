@@ -1,0 +1,38 @@
+[
+    {
+        "name": "math",
+        "datafile": "./data/math/math_broad.jsonl",
+        "learning_rate": 5e-4,
+        "max_epochs": 100,
+        "target_validation_loss": 0.05,
+        "checkpoint_interval": 20,
+        "patience": 10
+    },
+    {
+        "name": "math_1",
+        "datafile": "./data/math/math_1.jsonl",
+        "learning_rate": 1e-5,
+        "max_epochs": 100,
+        "target_validation_loss": 0.005,
+        "checkpoint_interval": 20,
+        "patience": 3
+    },
+    {
+        "name": "math_3",
+        "datafile": "./data/math/math_3.jsonl",
+        "learning_rate": 1e-5,
+        "max_epochs": 100,
+        "target_validation_loss": 0.005,
+        "checkpoint_interval": 20,
+        "patience": 3
+    },
+    {
+        "name": "math_4",
+        "datafile": "./data/math/math_4.jsonl",
+        "learning_rate": 1e-5,
+        "max_epochs": 100,
+        "target_validation_loss": 0.005,
+        "checkpoint_interval": 20,
+        "patience": 3
+    }
+]

@@ -143,6 +143,7 @@ for schedule_epoch in range(0, 1):
         for epoch in range(start_epoch, max_epochs):
             model.train()
             total_loss = 0
+            total_items_processed = 0
             for batch_idx, (input_seq, target_seq) in enumerate(train_dataloader):
                 optimizer.zero_grad()
                 input_seq = input_seq.to(device)
@@ -156,6 +157,11 @@ for schedule_epoch in range(0, 1):
                 masked_loss.backward()
                 optimizer.step()
                 total_loss += masked_loss.item()
+                total_items_processed += input_seq.size(0) 
+
+                # Check and print every 100 items
+                if total_items_processed % 320 == 0:
+                    print(f"Processed {total_items_processed} items, Current Batch Loss: {masked_loss.item()}")
 
             average_loss = total_loss / len(train_dataloader)
             print(f"Epoch {epoch+1} - Average Training Loss: {average_loss}")
